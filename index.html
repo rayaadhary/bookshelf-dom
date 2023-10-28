@@ -6,8 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf-DOM</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   </head>
   <body>
+    <div id="content">
+      <header><h1>Bookshelf</h1></header>
+      <div class="container-search">
+        <h2 class="title">Cari Buku</h2>
+        <form id="search-book" method="post">
+          <input type="text" value="" id="cariBuku" placeholder="Cari buku" />
+          <button type="submit" class="btn-cari"><i class="bx bx-search"></i></button>
+        </form>
+      </div>
+      <div class="container">
+        <h2 class="title">Tambah Buku</h2>
+        <form action="" method="post" id="formDataBuku">
+          <div class="container-judul">
+            <input type="text" value="" name="judul" id="judul" placeholder="Judul" />
+          </div>
+          <div class="container-description">
+            <div class="container-penulis">
+              <input type="text" value="" name="penulis" id="penulis" placeholder="Penulis" />
+            </div>
+            <div class="container-tahun">
+              <input type="number" value="" name="tahun" id="tahun" placeholder="Tahun" />
+            </div>
+          </div>
+          <div class="container-baca">
+            <input type="checkbox" name="selesaiDibaca" id="selesaiDibaca" />
+            <label for="selesaiDibaca">Selesai dibaca</label>
+          </div>
+          <button type="submit" class="btn-submit">Submit</button>
+        </form>
+      </div>
+      <div class="container-status">
+        <div class="container-uncompleted">
+          <h2 class="title">Buku belum dibaca</h2>
+          <div id="uncompleted"></div>
+        </div>
+        <div class="container-iscompleted">
+          <h2 class="title">Buku sudah dibaca</h2>
+          <div id="iscompleted"></div>
+        </div>
+      </div>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
