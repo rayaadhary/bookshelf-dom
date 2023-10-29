@@ -22,7 +22,7 @@ document.addEventListener(RENDER_EVENT, () => {
 
   for (const bookItem of books) {
     const bookElement = makeBookElement(bookItem);
-    if (bookItem.iscompletedBook) {
+    if (bookItem.isComplete) {
       iscompletedBook.append(bookElement);
     } else {
       uncompletedBook.append(bookElement);
@@ -112,7 +112,7 @@ const addBook = () => {
     title: bookTitle.value,
     author: bookAuthor.value,
     year: bookYear.value,
-    iscompletedBook: bookStatus,
+    isComplete: bookStatus,
   });
 
   bookTitle.value = null;
@@ -145,7 +145,7 @@ const makeBookElement = (bookObject) => {
   elementContainer.append(infoContainer);
   elementContainer.setAttribute('id', `book-${bookObject.id}`);
 
-  if (bookObject.iscompletedBook) {
+  if (bookObject.isComplete) {
     const btnUndo = document.createElement('button');
     btnUndo.classList.add('btn-undo');
     btnUndo.innerHTML = `<i class="bx bx-undo" />`;
@@ -193,7 +193,7 @@ const addBookToFinished = (bookId) => {
 
   if (bookTarget == null) return;
 
-  bookTarget.iscompletedBook = true;
+  bookTarget.isComplete = true;
 
   document.dispatchEvent(new Event(RENDER_EVENT));
   moveData();
@@ -204,7 +204,7 @@ const finishedBook = (bookId) => {
 
   if (bookTarget == null) return;
 
-  bookTarget.iscompletedBook = false;
+  bookTarget.isComplete = false;
 
   document.dispatchEvent(new Event(RENDER_EVENT));
   moveData();
