@@ -111,7 +111,7 @@ const addBook = () => {
     id: +new Date(),
     title: bookTitle.value,
     author: bookAuthor.value,
-    year: bookYear.value,
+    year: Number(bookYear.value),
     isComplete: bookStatus,
   });
 
